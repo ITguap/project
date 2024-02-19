@@ -4,10 +4,35 @@
     <meta charset="UTF-8">
     <title>User List</title>
 </head>
+<style rel="stylesheet" lang="css">
+    body{
+        background-color: #71bd69;
+    }
+    .center-screen {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        position: fixed;
+        left: 35%;
+        min-height: 40vh;
+        background-color: #ffd390;
+        border-radius: 10px;
+    }
+    .button{
+        background-color: darkred;
+        color: beige;
+        width: 80px;
+        height: 20px;
+        border-radius: 10px;
+    }
+</style>
 <body>
+<div class="center-screen">
 <form method="get" th:action="@{/all}">
     <input placeholder="Value" type="text" name="name">
-    <input type="submit" value="Search">
+    <input type="submit" class="button" value="Search">
 </form>
     <table>
         <thead>
@@ -28,8 +53,14 @@
             <td th:text="${user.password}"></td>
             <td th:text="${user.number}"></td>
             <td th:text="${user.city}"></td>
+            <td>
+                <a class="button" th:href="@{/delete-user/{id}(id=${user.id})}">Delete user</a>
+                <a class="button" th:href="@{/edit-user/{id}(id=${user.id})}">Edit user</a>
+            </td>
             </tr>
         </tbody>
     </table>
+    <button><a th:href="@{form-add}">Add new user</a></button>
+</div>
 </body>
 </html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style></style>
+    <meta charset="UTF-8">
+    <title>Edit User</title>
+</head>
+<style rel="stylesheet" lang="css">
+    body{
+        background-color: #71bd69;
+    }
+    .center-screen {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        position: fixed;
+        left: 46%;
+        min-height: 40vh;
+        background-color: #ffd390;
+        border-radius: 10px;
+    }
+
+</style>
+<body>
+<div class="center-screen">
+<form method="post" th:action="@{/update-user/{id}(id=${user.id})}" th:object="${user}"><br>
+<label for="name">Name: </label>
+    <input th:field="*{name}" placeholder="Name" id="name" type="text"/><br>
+    <label>Surname: </label>
+    <input th:field="*{surname}" placeholder="Surname" type="text"/><br>
+    <label>Lastname: </label>
+    <input th:field="*{lastname}" placeholder="Lastname" type="text"/><br>
+    <label>Password: </label>
+    <input th:field="*{password}" placeholder="Password" type="text"/><br>
+    <label>Number: </label>
+    <input th:field="*{number}" placeholder="Number" type="text"/><br>
+    <label>City: </label>
+    <input th:field="*{city}" placeholder="City" type="text"/><br><br>
+    <input type="submit" value="Edit user">
+</form>
+</div>
+</body>
+</html>

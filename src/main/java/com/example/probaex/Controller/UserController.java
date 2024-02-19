@@ -26,6 +26,32 @@ public class UserController {
     }
         return "userList";
     }
+
+    @GetMapping("/form-add")
+    String getAddUserForm(){
+    return "add-user";}
+    @PostMapping("/save")
+    String saveUser(User user){
+    userService.save(user);
+    return "redirect:/all";
+    }
+
+    @GetMapping("/delete-user/{id}")
+    String deleteUser(@PathVariable Long id){
+        userService.deleteUser(id);
+        return "redirect:/all";
+    }
+
+    @PostMapping("/update-user/{id}")
+    String updateUser(@ModelAttribute User user){
+        userService.save(user);
+        return "redirect:/all";}
+
+    @GetMapping("/edit-user/{id}")
+    String showEditForm(@PathVariable Long id, Model model){
+        model.addAttribute("user", userService.getUserById(id));
+        return "edit-user";
+}
 }
 
 

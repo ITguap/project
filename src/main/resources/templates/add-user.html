@@ -2,9 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Add new user</title>
 </head>
 <body>
-
+    <form method="post" th:action="@{/save}">
+        <label>Name: </label>
+        <input name="name" type="text"/><br>
+        <label>Surname: </label>
+        <input name="surname" type="text"/><br>
+        <label>Lastname: </label>
+        <input name="lastname" type="text"/><br>
+        <label>Password: </label>
+        <input name="password" type="text"/><br>
+        <label>Number: </label>
+        <input name="number" type="text"/><br>
+        <label>City: </label>
+        <input name="city" type="text"/><br><br>
+        <input type="submit" value="Save user">
+    </form>
 </body>
 </html>

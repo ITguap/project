@@ -26,6 +26,7 @@ public class UserService {
     user.setPassword(user.getPassword());
     user.setNumber(user.getNumber());
     user.setCity(user.getCity());
+    userRepo.save(user);
     }
 
     //Удаление пользователя по id
@@ -36,5 +37,9 @@ public class UserService {
     //Нахождение пользователя по имени
     public List<User> findUserByName(String name) {
         return userRepo.findByNameContainingIgnoreCase(name);
+    }
+
+    public User getUserById(Long id){
+        return userRepo.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid user id:" + id));
     }
 }
